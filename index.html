@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Venkata Reddy, aspiring Software Engineer and Frontend Developer." />
+  <title>Venkata Reddy | Frontend Developer Portfolio</title>
+  <style>
+    :root {
+      --bg: #0c1018;
+      --panel: #141b27;
+      --panel-2: #192333;
+      --text: #f4f5f7;
+      --muted: #aab4c4;
+      --accent: #e4b96b;
+      --accent-2: #7bd5c4;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 18px 55px rgba(0,0,0,.25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(ellipse at 85% 0%, rgba(123,213,196,.10), transparent 35%), var(--bg);
+      color: var(--text); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px);
+      background: rgba(12,16,24,.82); border-bottom: 1px solid var(--border);
+    }
+    nav { display:flex; justify-content:space-between; align-items:center; min-height:72px; gap:20px; }
+    .brand { font-weight:800; letter-spacing:.08em; font-size:.95rem; }
+    .brand span { color:var(--accent); }
+    .navlinks { display:flex; gap:24px; flex-wrap:wrap; font-size:.9rem; color:var(--muted); }
+    .navlinks a:hover, .text-link:hover { color:var(--accent); }
+    .hero { padding:92px 0 76px; display:grid; grid-template-columns:1.35fr .65fr; gap:55px; align-items:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:800; }
+    h1 { font-size:clamp(2.7rem, 7vw, 5.4rem); line-height:1.03; letter-spacing:-.055em; margin:18px 0; }
+    h1 span { color:var(--accent); }
+    .lead { max-width:650px; font-size:1.12rem; color:var(--muted); }
+    .actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:30px; }
+    .btn { padding:12px 18px; border-radius:12px; border:1px solid var(--border); font-weight:750; display:inline-flex; align-items:center; justify-content:center; transition:transform .2s, background .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .primary { color:#17130b; background:var(--accent); border-color:var(--accent); }
+    .secondary { background:rgba(255,255,255,.03); }
+    .hero-card { background:linear-gradient(145deg, #1c2938, #121823); border:1px solid var(--border); border-radius:28px; padding:28px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .hero-card:before { content:""; position:absolute; width:180px; height:180px; right:-75px; top:-75px; border:1px solid rgba(228,185,107,.5); border-radius:50%; box-shadow:0 0 0 24px rgba(228,185,107,.04),0 0 0 48px rgba(228,185,107,.025); }
+    .monogram { width:76px; height:76px; border-radius:22px; background:var(--accent); color:#1b1a16; display:grid; place-items:center; font-size:1.65rem; font-weight:900; margin-bottom:24px; }
+    .hero-card h2 { margin:0 0 8px; font-size:1.3rem; }
+    .hero-card p { color:var(--muted); margin:0; }
+    .mini-stat { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:25px; }
+    .mini-stat div { padding:13px; border:1px solid var(--border); border-radius:13px; background:rgba(255,255,255,.025); }
+    .mini-stat strong { display:block; color:var(--accent-2); font-size:.95rem; }
+    .mini-stat small { color:var(--muted); }
+    section { padding:68px 0; }
+    .section-head { margin-bottom:30px; }
+    .section-head .eyebrow { margin-bottom:8px; display:block; }
+    h2.section-title { font-size:clamp(1.9rem,4vw,2.8rem); letter-spacing:-.035em; margin:0; }
+    .section-intro { color:var(--muted); max-width:700px; margin:10px 0 0; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .panel { background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:25px; }
+    .panel h3 { margin:0 0 10px; font-size:1.15rem; }
+    .panel p { margin:0; color:var(--muted); }
+    .skills { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .chip { padding:8px 12px; border-radius:999px; border:1px solid rgba(228,185,107,.25); background:rgba(228,185,107,.07); color:#f3d7a5; font-size:.88rem; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .project { background:linear-gradient(160deg,var(--panel),#101620); border:1px solid var(--border); border-radius:20px; overflow:hidden; display:flex; flex-direction:column; min-height:310px; }
+    .project-art { height:125px; display:grid; place-items:center; background:radial-gradient(circle at 50% 30%, rgba(123,213,196,.17), transparent 55%), #192333; border-bottom:1px solid var(--border); }
+    .project-art svg { width:70px; height:70px; }
+    .project-content { padding:22px; display:flex; flex-direction:column; flex:1; }
+    .project-content h3 { margin:0 0 9px; font-size:1.12rem; }
+    .project-content p { margin:0 0 16px; color:var(--muted); font-size:.94rem; }
+    .project-label { margin-top:auto; color:var(--accent-2); font-size:.8rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .cert-list { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .cert { padding:20px; border-radius:16px; background:var(--panel); border:1px solid var(--border); }
+    .cert strong { display:block; margin-bottom:6px; }
+    .cert span { color:var(--muted); font-size:.9rem; }
+    .contact-box { display:flex; align-items:center; justify-content:space-between; gap:25px; background:linear-gradient(120deg,#1a2a35,#171d29); border:1px solid var(--border); border-radius:24px; padding:30px; }
+    .contact-box p { color:var(--muted); margin-bottom:0; }
+    .contact-links { display:flex; flex-direction:column; gap:9px; min-width:260px; overflow-wrap:anywhere; }
+    .text-link { color:var(--accent-2); font-weight:650; }
+    footer { padding:25px 0 35px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--border); }
+    .foot { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media (max-width:800px) {
+      .hero { grid-template-columns:1fr; padding-top:65px; gap:32px; }
+      .hero-card { max-width:520px; }
+      .project-grid, .cert-list { grid-template-columns:1fr 1fr; }
+      .contact-box { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:560px) {
+      .navlinks { gap:12px; font-size:.8rem; }
+      .brand { font-size:.82rem; }
+      nav { align-items:flex-start; padding:16px 0; flex-direction:column; }
+      .about-grid, .project-grid, .cert-list { grid-template-columns:1fr; }
+      section { padding:48px 0; }
+      .contact-links { min-width:0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">VENKATA <span>REDDY</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <div>
+        <div class="eyebrow">Frontend Developer · Aspiring Software Engineer</div>
+        <h1>Building for the <span>web.</span></h1>
+        <p class="lead">I’m Venkata Reddy, a B.Tech student interested in web development and creating responsive, user-friendly interfaces. I’m eager to keep learning and contribute to real-world software projects.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my projects <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="btn secondary" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Profile summary">
+        <div class="monogram">VR</div>
+        <h2>Venkata Reddy</h2>
+        <p>B.Tech · Malla Reddy (MR) Deemed To Be University</p>
+        <div class="mini-stat">
+          <div><strong>Frontend</strong><small>HTML · CSS · JavaScript</small></div>
+          <div><strong>Internship</strong><small>Navodita Infotech</small></div>
+          <div><strong>Projects</strong><small>3 featured projects</small></div>
+          <div><strong>Mindset</strong><small>Learn and improve</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">A little about me</span>
+          <h2 class="section-title">Curious by nature. Focused on growth.</h2>
+          <p class="section-intro">My goal is to apply what I learn, strengthen my development skills, and contribute effectively as part of a team.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Profile</h3>
+            <p>Aspiring Software Engineer passionate about web development. I’m seeking opportunities to apply academic knowledge and hands-on experience while continuing to learn and support team goals.</p>
+          </article>
+          <article class="panel">
+            <h3>Education</h3>
+            <p><strong style="color:var(--text)">B.Tech</strong><br />Malla Reddy (MR) Deemed To Be University<br /><span style="color:var(--muted)">2025 – Present</span></p>
+            <p style="margin-top:13px"><strong style="color:var(--text)">Intermediate</strong><br />Lakshya Junior College, Guntur · 2023–2025</p>
+            <p style="margin-top:9px"><strong style="color:var(--text)">SSC</strong><br />ZP High School, Chandalur · 2022–2023</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Technical toolkit</span>
+          <h2 class="section-title">Skills I’m building on</h2>
+          <p class="section-intro">Technologies and coursework listed in my resume.</p>
+        </div>
+        <div class="panel">
+          <h3>Programming & Web</h3>
+          <div class="skills">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+            <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C</span>
+          </div>
+          <h3 style="margin-top:23px">Backend & Database</h3>
+          <div class="skills">
+            <span class="chip">PHP</span><span class="chip">Django</span><span class="chip">Spring Boot</span><span class="chip">SQL</span>
+          </div>
+          <h3 style="margin-top:23px">Coursework</h3>
+          <div class="skills">
+            <span class="chip">Data Structures & Algorithms</span><span class="chip">Operating Systems</span>
+            <span class="chip">Computer Networks</span><span class="chip">DBMS</span><span class="chip">Object-Oriented Programming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Selected work</span>
+          <h2 class="section-title">Projects & work samples</h2>
+          <p class="section-intro">Project summaries are based on my resume. Live demos and repository links can be added when available.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="13" y="12" width="54" height="56" rx="9" stroke="#7bd5c4" stroke-width="2.5"/><path d="M24 29h32M24 39h21M24 49h26" stroke="#e4b96b" stroke-width="3" stroke-linecap="round"/><circle cx="56" cy="56" r="7" fill="#7bd5c4"/></svg>
+            </div>
+            <div class="project-content">
+              <h3>Student Wellness Monitor</h3>
+              <p>Developed a web application for tracking student wellness. Designed a simple, responsive interface for data management and supported monitoring and visualization of student wellness data.</p>
+              <span class="project-label">Web application</span>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="12" y="14" width="24" height="24" rx="5" stroke="#e4b96b" stroke-width="2.5"/><rect x="44" y="14" width="24" height="24" rx="5" stroke="#7bd5c4" stroke-width="2.5"/><rect x="12" y="46" width="24" height="20" rx="5" stroke="#7bd5c4" stroke-width="2.5"/><rect x="44" y="46" width="24" height="20" rx="5" stroke="#e4b96b" stroke-width="2.5"/></svg>
+            </div>
+            <div class="project-content">
+              <h3>CodeAlpha – Image Gallery</h3>
+              <p>Created a responsive image gallery with organized image display and easy navigation. Focused on a clean, user-friendly interface and a responsive layout to improve the browsing experience.</p>
+              <span class="project-label">Frontend project</span>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none"><path d="M40 10 64 24v31L40 69 16 55V24L40 10Z" stroke="#7bd5c4" stroke-width="2.5"/><path d="M16 24 40 39 64 24M40 39v30M28 17l24 14M52 17 28 31" stroke="#e4b96b" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="project-content">
+              <h3>3D Design in Web</h3>
+              <p>Developed a web application featuring interactive 3D elements and an attractive, responsive interface. The project demonstrates web development and design skills with a focus on visual experience.</p>
+              <span class="project-label">Interactive web design</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Learning & credentials</span>
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-intro">Certifications listed in my resume.</p>
+        </div>
+        <div class="cert-list">
+          <div class="cert"><strong>Frontend Development</strong><span>CodeAlpha</span></div>
+          <div class="cert"><strong>Full Stack Web Development</strong><span>Certification listed in resume</span></div>
+          <div class="cert"><strong>Full Stack Web Development</strong><span>SkillCraft Technology</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow">Let’s connect</span>
+            <h2 class="section-title" style="margin-top:8px">Have an opportunity in mind?</h2>
+            <p>I’m interested in frontend development opportunities, internships, and learning from real-world projects.</p>
+          </div>
+          <div class="contact-links">
+            <a class="text-link" href="mailto:venkyr385@gmail.com">✉ venkyr385@gmail.com</a>
+            <a class="text-link" href="tel:+919398651445">☎ +91 9398651445</a>
+            <a class="text-link" href="https://linkedin.com/in/reddem-venkata-reddy-9a59243a8/" target="_blank" rel="noopener noreferrer">↗ LinkedIn profile</a>
+            <span style="color:var(--muted);font-size:.9rem">Basireddypalli, India</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> Venkata Reddy</span>
+      <span>Frontend Developer Portfolio</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
